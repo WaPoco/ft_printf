@@ -1,38 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 16:40:29 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/11/30 16:13:19 by vpogorel         ###   ########.fr       */
+/*   Created: 2024/11/30 13:57:43 by vpogorel          #+#    #+#             */
+/*   Updated: 2024/11/30 15:23:06 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
 
-int	ft_printf(const char *format, ...)
+void	ft_print_char(va_list args)
 {
-	size_t	len_format;
-	va_list	args;
-	int	i;
+	char	result;
 
-	i = 0;
-	len_format = ft_strlen(format);
-	va_start(args, format);
-	while (i < len_format)
-	{
-		if (format[i] == "%" && i + 1 < len_format)
-			check_flag(args, format[i + 1]);
-			i++;
-		if (i + 1 < len_format)
-			i++;
-	}
-	return (1);
-}
-
-int	main()
-{
-	ft_printf("Hallo, my name is %s and I am %d years old.", "Vasili", 30);
+	result = va_arg(args, char);
+	ft_putchar_fd(result, 1);
 }

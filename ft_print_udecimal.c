@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_udecimal.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 16:40:29 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/11/30 16:13:19 by vpogorel         ###   ########.fr       */
+/*   Created: 2024/11/30 14:00:59 by vpogorel          #+#    #+#             */
+/*   Updated: 2024/11/30 15:23:04 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
 
-int	ft_printf(const char *format, ...)
+static void	print_digit(int fd, long n, int sign)
 {
-	size_t	len_format;
-	va_list	args;
-	int	i;
+	char	digit;
 
-	i = 0;
-	len_format = ft_strlen(format);
-	va_start(args, format);
-	while (i < len_format)
+	if (n == 0)
 	{
-		if (format[i] == "%" && i + 1 < len_format)
-			check_flag(args, format[i + 1]);
-			i++;
-		if (i + 1 < len_format)
-			i++;
+		if (sign == -1)
+			write(fd, "-", 1);
+		return ;
 	}
-	return (1);
+	print_digit(fd, n / 10, sign);
+	digit = (n % 10) + '0';
+	write(fd, &digit, 1);
+	return ;
 }
-
-int	main()
+void	Print_udecimal(va_list args)
 {
-	ft_printf("Hallo, my name is %s and I am %d years old.", "Vasili", 30);
+    unsigned int n;
+
+    n = va_arg(args, unsigned int);
+	if (n > 0)
+		print_digit(1, (long)n, 1);
+	else if (n == 0)
+		write(1, "0", 1);
 }

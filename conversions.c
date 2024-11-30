@@ -6,55 +6,30 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 13:36:51 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/11/29 18:44:18 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/11/30 16:37:53 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libprintf.h"
 
-void	Char(va_list args)
-{
-	char	result;
-
-	result = va_arg(args, char);
-	ft_putchar_fd(result, 1);
-}
-void	String(va_list args)
-{
-	char	*result;
-
-	result = va_arg(args, char *);
-	ft_putstr_fd(result, 1);
-}
-void	Decimal(va_list args)
-{
-	int	result;
-
-	result = va_arg(args, int);
-	ft_putnbr_fd(result, 1);
-}
-void	UDecimal(va_list args)
-{
-	
-}
-void	flag(va_list args)
+void	check_flag(va_list args, char flag)
 {
 	int	len_arg;
 
 	if (flag == 'c')
-		Char(args);
+		ft_print_char(args);
 	else if (flag == 's')
-		String(args);
+		ft_print_string(args);
 	else if (flag == 'p')
-		Pointer(args);
+		ft_print_pointer(args);
 	else if (flag == 'd' || flag == 'i')
-		Decimal(args);
+		ft_print_decimal(args);
 	else if (flag == 'u')
-		UDecimal(args);
+		ft_print_udecimal(args);
 	else if (flag == 'x')
-		NTohexl(args);
+		ft_print_number_Hex(args, 'l');
 	else if (flag == 'X')
-		NTohexu(args);
+		ft_print_number_Hex(args, 'u');
 	else if (flag == '%')
-		PPs(args);
+		ft_print_percent();
 }
