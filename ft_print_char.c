@@ -6,16 +6,16 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 13:57:43 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/11/30 15:23:06 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:40:39 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "libftprintf.h"
 
 void	ft_print_char(va_list args)
 {
 	char	result;
 
 	result = va_arg(args, char);
-	ft_putchar_fd(result, 1);
+	write(1, &result, 1);
 }

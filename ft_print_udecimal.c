@@ -6,11 +6,11 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 14:00:59 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/11/30 15:23:04 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:41:07 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "libftprintf.h"
 
 static void	print_digit(int fd, long n, int sign)
 {
@@ -27,7 +27,7 @@ static void	print_digit(int fd, long n, int sign)
 	write(fd, &digit, 1);
 	return ;
 }
-void	Print_udecimal(va_list args)
+void	ft_print_udecimal(va_list args)
 {
     unsigned int n;
 

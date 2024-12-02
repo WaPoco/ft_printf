@@ -6,11 +6,11 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:40:29 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/11/30 16:13:19 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:52:57 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "libftprintf.h"
 
 int	ft_printf(const char *format, ...)
 {
@@ -29,10 +29,11 @@ int	ft_printf(const char *format, ...)
 		if (i + 1 < len_format)
 			i++;
 	}
+	va_end(args);
 	return (1);
 }
-
+/*
 int	main()
 {
 	ft_printf("Hallo, my name is %s and I am %d years old.", "Vasili", 30);
-}
+}*/

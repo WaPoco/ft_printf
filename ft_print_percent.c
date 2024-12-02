@@ -6,13 +6,13 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 14:02:57 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/11/30 16:33:40 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:40:52 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libprintf.h"
+#include "libftprintf.h"
 
-void	ft_print_percent()
+void	ft_print_percent(va_list args)
 {
-	ft_putchar_fd("%", 1);
+	ft_print_char(args);
 }
