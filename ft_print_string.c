@@ -6,13 +6,13 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 13:59:29 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/02 16:41:04 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:01:37 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-static void	ft_putstr_fd(char *s, int fd)
+static void	ft_putstr_fd(char *s, int fd, int *count)
 {
 	int	i;
 
@@ -24,11 +24,18 @@ static void	ft_putstr_fd(char *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
+	(*count) += i;
 }
-void	ft_print_string(va_list args)
+void	ft_print_string(va_list args, int *count)
 {
 	char	*result;
 
 	result = va_arg(args, char *);
-	ft_putstr_fd(result, 1);
+	if (result == NULL)
+	{
+		write(1, "(null)", 6);
+		(*count) += 6;
+		return ;
+	}
+	ft_putstr_fd(result, 1, count);
 }

@@ -13,7 +13,7 @@ Src = ft_check_flag.c \
 		ft_print_string.c
 
 Objc = $(Src:.c=.o)
-Header = libftprintf.h
+Header = ft_printf.h
 
 all: $(Name)
 
