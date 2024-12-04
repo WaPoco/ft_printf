@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 14:02:55 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/03 21:58:21 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:05:00 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,11 @@ void	ft_print_number_Hex(va_list args, char c, int *count)
     long long n;
 
     n = va_arg(args, long long);
-	printf(" %lld ", n);
-	if (n < 0)
-		print_Hex(1, -(long long)n, -1, c, count);
+	if (n > 0)
+		print_Hex(1, n, 1, c, count);
 	else if (n == 0)
 	{
 		write(1, "0", 1);
 		(*count)++;
 	}
-	else
-		print_Hex(1, (long long)n, 1, c, count);
 }

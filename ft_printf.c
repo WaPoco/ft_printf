@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:40:29 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/03 20:52:35 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/04 20:05:02 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,4 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-/*
-int	main()
-{
-	int len = ft_printf(" %d %d \n", 789, 89);
-	printf("%d \n", len);
-	len = printf(" %d %d \n", 789, 89);
-	printf("%d \n", len);
-}*/
+
