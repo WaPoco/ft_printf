@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 13:59:29 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/04 16:30:00 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/05 17:09:38 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	ft_putstr_fd(char *s, int fd, int *count)
 	}
 	(*count) += i;
 }
+
 void	ft_print_string(va_list args, int *count)
 {
 	char	*result;

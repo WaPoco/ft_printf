@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 13:58:47 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/04 19:40:22 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:53:33 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static void	print_digit(int fd, long n, int sign, int *count)
 	digit = (n % 10) + '0';
 	write(fd, &digit, 1);
 	(*count)++;
-	return ;
 }
 
 void	ft_putnbr_fd(int n, int fd, int *count)
@@ -44,6 +43,7 @@ void	ft_putnbr_fd(int n, int fd, int *count)
 	else
 		print_digit(fd, n, 1, count);
 }
+
 void	ft_print_decimal(va_list args, int *count)
 {
 	int	result;

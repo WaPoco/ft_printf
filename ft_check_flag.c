@@ -6,7 +6,7 @@
 /*   By: vpogorel <vpogorel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 13:36:51 by vpogorel          #+#    #+#             */
-/*   Updated: 2024/12/03 20:22:13 by vpogorel         ###   ########.fr       */
+/*   Updated: 2024/12/05 17:12:02 by vpogorel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	ft_check_flag(va_list args, char flag, int *count)
 	else if (flag == 'u')
 		ft_print_udecimal(args, count);
 	else if (flag == 'x')
-		ft_print_number_Hex(args, 'l', count);
+		ft_print_number_hex(args, 'l', count);
 	else if (flag == 'X')
-		ft_print_number_Hex(args, 'u', count);
+		ft_print_number_hex(args, 'u', count);
 	else if (flag == '%')
 		ft_print_percent(count);
 }
