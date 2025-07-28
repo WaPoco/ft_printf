@@ -15,7 +15,7 @@ They use the `<stdarg.h>` header, which provides macros to handle the variable a
    A special type used to declare a variable that will store the list of unnamed arguments.
 - **`va_start(va_list, last_fixed_arg)`**
 
-   Initializes the  list (va_list) to start reading arguments, with last_fixed_arg being the last known fixed argument before the variadic ones.
+   Initializes the  list `va_list` to start reading arguments, with `last_fixed_arg` being the last known fixed argument before the variadic ones.
 - **`va_arg(va_list, type)`**:
 
    Retrieves the next argument in the list, specifying its type.
