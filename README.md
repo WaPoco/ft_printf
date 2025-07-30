@@ -1,38 +1,54 @@
 # ft_printf
 
-A custom-built version of the standard printf function in C, developed as part of the 42 school curriculum to replicate its core functionality. The goal was to implement a simplified version capable of handling a range of format specifiers and argument types, while ensuring robust error handling and proper memory management.
+A custom-built version of the standard `printf` function in C, developed as part of the 42 school curriculum. The goal was to implement a simplified version that handles a range of format specifiers and argument types, while ensuring robust error handling and proper memory management.
+
+---
 
 ## Variadic Functions in C
 
-### What is a a variadic function in C?
-A variadic function in C is a function that can accept a variable number of arguments. A common example is the standard printf function, which allows you to pass a varying number and type of arguments depending on the format string.
+### What is a Variadic Function?
 
-### How do they work?
-They use the `<stdarg.h>` header, which provides macros to handle the variable arguments.
+A variadic function in C is a function that can accept a variable number of arguments. A common example is the standard `printf` function, which adjusts its behavior based on a format string and accompanying arguments.
 
-- **`va_list`**
+### How Do They Work?
 
-   A special type used to declare a variable that will store the list of unnamed arguments.
-- **`va_start(va_list, last_fixed_arg)`**
+Variadic functions use the `<stdarg.h>` header, which provides macros to handle the variable arguments:
 
-   Initializes the  list `va_list` to start reading arguments, with `last_fixed_arg` being the last known fixed argument before the variadic ones.
-- **`va_arg(va_list, type)`**:
+- **`va_list`**  
+  Declares a variable to access the list of unnamed arguments.
+- **`va_start(va_list, last_fixed_arg)`**  
+  Initializes the `va_list` to start reading arguments, beginning after the last fixed parameter.
+- **`va_arg(va_list, type)`**  
+  Retrieves the next argument in the list, specifying its type.
+- **`va_end(va_list)`**  
+  Cleans up after accessing the arguments.
 
-   Retrieves the next argument in the list, specifying its type.
-- **`va_end`**
+---
 
-   Cleans up the list after you're done accessing the arguments.
+## 🔧 What Was Implemented
 
-## What was implemented
-- A custom version of the `printf` function that supports different format specifiers such as:
-  - `c` : character
-  - `s` : string
-  - `p` : pointer
-  - `d` : integer
-  - `i` : integer
-  - `u` : unsigned integer
-  - `x` : hexadecimal (lowercase)
-  - `X` : hexadecimal (uppercase)
-  - `%` : percent sign
-- Custom memory management for handling arguments and buffers.
-- Error handling and edge cases (like printing `NULL` for strings).
+A custom version of `printf` that supports the following format specifiers:
+
+- `%c` : character  
+- `%s` : string  
+- `%p` : pointer  
+- `%d` / `%i` : signed integer  
+- `%u` : unsigned integer  
+- `%x` : hexadecimal (lowercase)  
+- `%X` : hexadecimal (uppercase)  
+- `%%` : percent sign
+
+Additional features:
+- Custom memory handling for dynamic buffers and edge cases
+- Error handling (e.g., printing `(null)` for NULL strings)
+
+---
+
+## 💡 Usage Example
+
+```c
+ft_printf("Hello %s, number: %d\n", "world", 42);
+```
+...
+## Testing
+Basic unit tests were created to validate the correctness of the implementation by comparing output with the standard `printf`. You can find the tests in extra test.c file.
