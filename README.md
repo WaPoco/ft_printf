@@ -8,19 +8,32 @@ A custom-built version of the standard `printf` function in C, developed as part
 
 ### What is a Variadic Function?
 
-A variadic function in C is a function that can accept a variable number of arguments. A common example is the standard `printf` function, which adjusts its behavior based on a format string and accompanying arguments.
+A variadic function in C is a function that can accept a variable number of arguments. A common example is the standard `printf` function, which adjusts its behavior based on a format string and accompanying arguments. These functions are declared with an ellipsis ```(...)``` to indicate that additional unnamed arguments may be passed, like so:
 
+```
+int	ft_printf(const char *format, ...)
+{
+	va_list	args;
+	int		count;
+
+	va_start(args, format);
+	count = check_format(args, format);
+	va_end(args);
+	return (count);
+}
+```
+  
 ### How Do They Work?
 
-Variadic functions use the `<stdarg.h>` header, which provides macros and functions to handle the variable arguments:
+Variadic functions use the `<stdarg.h>` header, which provides macros to handle the variable arguments:
 
 - **`va_list`**  
   A data type used to declare a variable that can access a function's unnamed (variadic) arguments.
-- **`va_start(list, format)`**  
-  Initializes the `va_list` to start reading arguments, beginning after the last fixed parameter.
-- **`va_arg(va_list, type)`**  
+- **`va_start(args, format)`**  
+  Initializes a list of type `va_list` to start reading arguments, beginn after the string ```format```.
+- **`va_arg(args, type)`**  
   Retrieves the next argument in the list, specifying its type.
-- **`va_end(va_list)`**  
+- **`va_end(vargs)`**  
   Cleans up after accessing the arguments.
   
 ---
@@ -43,42 +56,75 @@ Additional features:
 - Error handling (e.g., printing `(null)` or `(nill)` for NULL strings)
 
 ---
-## File overview
+## 🔧 Project Structure
 
-- ```ft_check_flag.c```
+### File Overview
 
+- **`ft_check_flag.c`**  
   Delegates to helper functions based on format specifiers to handle printing and update the character count.
-- ```ft_print_decimal.c```
 
-  Prints a signed decimal integer to standard output and updates the character count.
-- ```ft_print_number_hex.c```
+- **`ft_print_decimal.c`**  
+  Prints a signed decimal integer (`%d`/`%i`) to standard output and updates the character count.
 
-  Prints an unsigned integer in lowercase ```%x``` or uppercase ```%X``` hexadecimal format.
-- ```ft_print_pointer.c```
+- **`ft_print_number_hex.c`**  
+  Prints an unsigned integer in lowercase (`%x`) or uppercase (`%X`) hexadecimal format and updates the character count.
 
-  Prints the address of a pointer in hexadecimal format, prefixed with ```0x```.
-- ```ft_print_udecimal.c```
+- **`ft_print_pointer.c`**  
+  Prints the address of a pointer in hexadecimal format, prefixed with `0x`, and updates the character count.
 
-  
-- ```ft_print_char.c```
-- ```ft_printf.c```
-- ```ft_print_percent.c```
+- **`ft_print_udecimal.c`**  
+  Prints an unsigned decimal integer (`%u`) to standard output and updates the character count.
 
-  Functions to write the percentage sign.
-- ```ft_print_string.c```
+- **`ft_print_char.c`**  
+  Prints a character (`%c`) to standard output and updates the character count.
 
-  Functions to write a string in the standard output.
-- ```Makefile```
+- **`ft_printf.c`**  
+  The main entry point of the custom `printf` implementation. Parses the format string and handles variadic arguments.
+
+- **`ft_print_percent.c`**  
+  Prints the percent sign (`%%`) and updates the character count.
+
+- **`ft_print_string.c`**  
+  Prints a string (`%s`) to standard output and updates the character count.
+
+- **`Makefile`**  
+  Builds the static library `libftprintf.a`, which includes the `ft_printf` function.
+
+---
+## 🛠️ Compilation
+
+To compile the library, run:
+
+```bash
+make
+```
+To delete the files, run:
+```bash
+make fclean
+```
+To recompile the files , run:
+```bash
+make re
+```
+if you want to use the ```ft_printf``` function, then include the headerfile ```ft_printf.h``` in c. file, run:
+```bash
+cc main.c libftprintf.a
+```
 
 ## 💡 Usage Example
 
 ```c
-ft_printf("Hello %s, number: %d\n", "world", 42);
+#include "ft_printf.h"
+
+int main(void)
+{
+    ft_printf("Hello %s! You are %d years old.\n", "Alice", 30);
+    return 0;
+}
 ```
 Output:
-```c
-Hello world, number: 42
-
+```bash
+Hello Alice! Your are 30 years old. 
 ```
 
 ## Testing
