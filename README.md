@@ -8,7 +8,7 @@ A custom-built version of the standard `printf` function in C, developed as part
 
 ### What is a Variadic Function?
 
-A variadic function in C is a function that can accept a variable number of arguments. A common example is the standard `printf` function, which adjusts its behavior based on a format string and accompanying arguments. These functions are declared with an ellipsis ```(...)``` to indicate that additional unnamed arguments may be passed, like so:
+A variadic function in C is a function that can accept a variable number of arguments. A common example is the standard `printf` function, which adjusts its behavior based on a format string and accompanying arguments. These functions are declared with an ellipsis ```(...)``` to indicate that additional unnamed arguments may be passed:
 
 ```
 int	ft_printf(const char *format, ...)
@@ -30,7 +30,7 @@ Variadic functions use the `<stdarg.h>` header, which provides macros to handle 
 - **`va_list`**  
   A data type used to declare a variable that can access a function's unnamed (variadic) arguments.
 - **`va_start(args, format)`**  
-  Initializes a list of type `va_list` to start reading arguments, beginn after the string ```format```.
+  Initializes a list of type `va_list` to start reading arguments, beginning after the string ```format```.
 - **`va_arg(args, type)`**  
   Retrieves the next argument in the list, specifying its type.
 - **`va_end(vargs)`**  
@@ -106,7 +106,7 @@ To recompile the files , run:
 ```bash
 make re
 ```
-if you want to use the ```ft_printf``` function, then include the headerfile ```ft_printf.h``` in c. file, run:
+if you want to use the ```ft_printf``` function, then include the header file ```ft_printf.h``` in your source file, run:
 ```bash
 cc main.c libftprintf.a
 ```
@@ -124,8 +124,8 @@ int main(void)
 ```
 Output:
 ```bash
-Hello Alice! Your are 30 years old. 
+Hello Alice! You are 30 years old. 
 ```
 
 ## Testing
-Basic unit tests were created to validate the correctness of the implementation by comparing output with the standard `printf`. You can find the tests in the test.c file.
+Basic unit tests were created to validate the correctness of the implementation by comparing output with the standard `printf`. You can find the tests in the `test.c` file.
